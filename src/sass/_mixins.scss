@@ -1,0 +1,17 @@
+@mixin centerContent {
+    display: flex;
+    align-items: center;
+}
+
+
+// Breakpoints
+$breakpoints-down: (
+    "sm": 650px,
+    "md": 1000px,
+);
+
+@mixin breakpoint($size) {
+    @media (max-width:map-get($breakpoints-down, $size)) {
+        @content
+    }
+}

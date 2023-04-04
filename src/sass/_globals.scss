@@ -1,0 +1,63 @@
+@use "./utilities" as *;
+
+// Boilerplate browser style resets
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font;
+    background-color: var(--bg-color);
+    color: var(--pry-text-clr);
+
+}
+
+// Typography
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0;
+    text-transform: capitalize;
+}
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: var(--pry-text-clr);
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: $font;
+    border: none;
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--pry-text-clr);
+
+}
+
+textarea:focus,
+input:focus {
+    outline-color: var(--aux-clr);
+}
