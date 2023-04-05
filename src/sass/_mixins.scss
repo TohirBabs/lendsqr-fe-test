@@ -3,6 +3,11 @@
     align-items: center;
 }
 
+@mixin boxShadow {
+    border: 1px solid rgba(33, 63, 125, 0.2);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
 
 // Breakpoints
 $breakpoints-down: (

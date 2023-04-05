@@ -1,0 +1,78 @@
+@use "./mixins" as *;
+
+.users {
+    height: calc(100vh - 5rem);
+    overflow-y: scroll;
+    flex: 1;
+    background-color: #E5E5E5;
+
+    @include breakpoint(md) {
+        padding: 0;
+        height: calc(100vh - 4rem);
+    }
+
+    h2 {
+        padding: 2rem 2rem 1rem;
+
+        @include breakpoint(md) {
+            padding: 1rem 1rem 1rem;
+        }
+    }
+
+    &__cards {
+        margin: 1rem 0;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.8rem;
+
+        @include breakpoint(sm) {
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0 0 1rem 0;
+            padding: 0 1rem;
+            gap: 0.5rem;
+        }
+
+        .card {
+            background: #FFFFFF;
+            @include boxShadow;
+            padding: 1rem;
+            min-width: 13rem;
+
+            @include breakpoint(sm) {
+                @include centerContent;
+                gap: 0.875rem;
+                padding: 0.5rem;
+                min-width: 10rem;
+            }
+
+            &__title {
+                font-weight: 500;
+                font-size: 0.875rem;
+                text-transform: uppercase;
+                margin: 0.6rem 0;
+            }
+
+            &__stat {
+                font-weight: 600;
+                font-size: 1.5rem;
+                margin: 1rem 0;
+            }
+
+            @include breakpoint(sm) {
+
+                &__title {
+                    margin: 0.4rem 0;
+                    font-size: 0.75rem;
+                }
+
+                &__stat {
+                    margin: 0.4rem 0;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+
+}
