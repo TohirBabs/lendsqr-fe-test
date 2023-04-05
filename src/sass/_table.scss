@@ -1,0 +1,165 @@
+@use "./mixins" as *;
+
+.table {
+    max-width: 100vw;
+    overflow-x: auto;
+
+    table {
+        width: calc(100% - 4rem);
+        min-width: 82rem;
+        text-align: left;
+        background: #FFFFFF;
+        border: 1px solid rgba(33, 63, 125, 0.2);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        margin: 0 2rem;
+
+        @include breakpoint(md) {
+            margin: 0 1rem;
+            padding: 0.4rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        th {
+            padding: 1rem 0;
+
+            span {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 0.95rem;
+            }
+
+            position: relative;
+
+            img {
+                width: 1rem;
+                margin-left: 0.5rem;
+            }
+
+            form {
+                position: absolute;
+                top: 3rem;
+                @include centerContent;
+                flex-direction: column;
+                align-items: flex-start;
+                @include boxShadow;
+                background-color: #FFFFFF;
+                z-index: 100000;
+                padding: 2rem 1rem;
+
+                label {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 16px;
+                    margin-bottom: 0.3rem;
+                    text-transform: capitalize;
+                }
+
+                input,
+                select {
+                    background: #FFFFFF;
+                    border: 1px solid rgba(#213F7D, 0.2);
+                    border-radius: 8px;
+                    padding: 0.7rem 1rem;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    font-size: 1rem;
+                    color: var(--pry-text-clr)
+                }
+
+                .buttons {
+                    @include centerContent;
+                    gap: 1rem;
+
+                    button {
+                        padding: 0.8rem 2rem;
+                        border-radius: 0.5rem;
+                        font-weight: 600;
+                        font-size: 14px;
+                        text-transform: capitalize;
+
+                        &:first-child {
+                            border: #213F7D 1px solid;
+                            color: var(--pry-text-clr);
+                        }
+
+                        &:last-child {
+                            background-color: var(--aux-clr);
+                            color: #fff;
+                        }
+
+                        width: 50%;
+                    }
+                }
+            }
+        }
+
+        tr {
+            position: relative;
+
+            .row_menu {
+                position: absolute;
+                right: -1rem;
+                background: #FFFFFF;
+                border: 1px solid rgba(84, 95, 125, 0.2);
+                box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+                border-radius: 4px;
+                z-index: 100000;
+
+                button,
+                a {
+                    @include centerContent;
+                    padding: 0.8rem 1.5rem;
+                    padding-right: 2rem;
+                    gap: 0.5rem;
+                    font-weight: 500;
+                    font-size: 14px;
+                    text-transform: capitalize;
+                }
+            }
+
+            td {
+                padding: 1.2rem 0;
+                border-bottom: rgba(33, 63, 125, 0.1) 1px solid;
+                text-transform: capitalize;
+
+                @include breakpoint(md) {
+                    padding: 0.5rem 0;
+                }
+
+                &:nth-child(6) {
+                    p {
+                        display: inline-block;
+                        border-radius: 4rem;
+                        padding: 0.6rem 1rem;
+                        text-transform: capitalize;
+                    }
+
+                    &.active p {
+                        color: rgba(57, 205, 98, 1);
+                        background-color: rgba(57, 205, 98, 0.2);
+                    }
+
+                    &.inactive p {
+                        color: rgba(#545F7D, 1);
+                        background-color: rgba(#545F7D, 0.2);
+                    }
+
+                    &.pending p {
+                        color: rgba(#E9B200, 1);
+                        background-color: rgba(#E9B200, 0.2);
+                    }
+
+                    &.blacklisted p {
+                        color: rgba(#E4033B, 1);
+                        background-color: rgba(#E4033B, 0.2);
+                    }
+                }
+            }
+        }
+
+
+    }
+
+}
