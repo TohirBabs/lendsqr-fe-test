@@ -3,8 +3,9 @@ import card_users_icon from "../../assets/icons/card_users_icon.svg";
 import card_active_users_icon from "../../assets/icons/card_active_users_icon.svg";
 import card_savings_icon from "../../assets/icons/card_savings_icon.svg";
 import card_users_with_loans_icon from "../../assets/icons/card_users_with_loans_icon.svg";
-import { Table } from "./Table";
+
 import { API_BASE_URL } from "../../config";
+import { Table } from "../Table";
 
 export type UsersData = {
   accountBalance: string;
@@ -45,10 +46,10 @@ export type UsersData = {
 
 export const Users = () => {
   const [usersData, setUsersData] = React.useState<UsersData[]>();
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   React.useEffect(() => {
-    localStorage.getItem("usersData") &&
-      setUsersData(JSON.parse(localStorage.getItem("usersData") || ""));
+    setUsersData(JSON.parse(localStorage.getItem("usersData") || ""));
 
     const dataFetch = async () => {
       const data = await (await fetch(`${API_BASE_URL}/users`)).json();
@@ -84,7 +85,13 @@ export const Users = () => {
           </div>
         ))}
       </div>
-      {usersData && <Table data={usersData} />}
+      {usersData && (
+        <Table
+          data={usersData}
+          rowsPerPage={rowsPerPage}
+          setRowsPerPage={setRowsPerPage}
+        />
+      )}
     </div>
   );
 };

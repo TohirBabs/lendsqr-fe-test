@@ -162,4 +162,60 @@
 
     }
 
+    &-pagination {
+        margin: 2rem;
+        @include centerContent;
+        justify-content: space-between;
+
+        @include breakpoint(sm) {
+            margin: 0.8rem;
+            flex-direction: column;
+            gap: 1.5rem
+        }
+
+        .slice {
+            @include centerContent;
+
+            select {
+                margin: 0 1rem;
+                background: rgba(33, 63, 125, 0.1);
+                border-radius: 4px;
+                padding: 0.2rem 0.3rem;
+
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 16px;
+
+                color: #545F7D;
+            }
+        }
+
+        .page {
+            @include centerContent;
+            margin-bottom: 2rem;
+
+
+            img {
+                background: rgba(33, 63, 125, 0.1);
+                border-radius: 4px;
+                padding: 5px 10px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 5px;
+                line-height: 19px;
+                color: rgba(84, 95, 125, 0.6);
+                cursor: pointer;
+            }
+
+            .active_page {
+                color: rgba(84, 95, 125, 1);
+                font-weight: 600;
+            }
+        }
+    }
+
 }
