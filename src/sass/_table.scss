@@ -161,6 +161,14 @@
                         background-color: rgba(#E4033B, 0.2);
                     }
                 }
+
+                &:last-child {
+                    >img {
+                        padding: 4px 0.8rem;
+                        border-radius: 3rem;
+                    }
+
+                }
             }
         }
 
