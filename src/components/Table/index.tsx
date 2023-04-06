@@ -6,8 +6,8 @@ import cancel_user_icon from "../../assets/icons/cancel_user_icon.svg";
 import activate_user_icon from "../../assets/icons/activate_user_icon.svg";
 import { TablePagination } from "./TablePagination";
 import { NavLink } from "react-router-dom";
-import { UsersData } from "../Users";
 import { useTable } from "../../hooks";
+import { UsersData } from "../Users";
 
 type Props = {
   data: UsersData[];
