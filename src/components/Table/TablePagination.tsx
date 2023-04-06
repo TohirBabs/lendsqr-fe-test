@@ -38,7 +38,10 @@ export const TablePagination = ({
         <p>out of 100</p>
       </div>
       <div className="page">
-        <img src={prev_icon} />
+        <img
+          src={prev_icon}
+          onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
+        />
         {range.map((el, index) => (
           <button
             key={index}
@@ -48,7 +51,12 @@ export const TablePagination = ({
             {el}
           </button>
         ))}
-        <img src={next_icon} />
+        <img
+          src={next_icon}
+          onClick={() =>
+            setPage((page) => (page < range.length ? page + 1 : range.length))
+          }
+        />
       </div>
     </div>
   );
