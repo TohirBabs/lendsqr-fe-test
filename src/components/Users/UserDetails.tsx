@@ -6,6 +6,10 @@ import outlined_star from "../../assets/icons/outlined_star_icon.svg";
 import dots_icon from "../../assets/icons/vertical_dots_icon.svg";
 import { UsersData } from ".";
 
+type Params = {
+  userId?: number;
+};
+
 export const UserDetails = () => {
   let params = useParams();
   let navigate = useNavigate();
@@ -13,9 +17,9 @@ export const UserDetails = () => {
   const [showMenu, setShowMenu] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (localStorage.getItem("usersData")) {
+    if (localStorage.getItem("usersData") && params.userId) {
       const users = JSON.parse(localStorage.getItem("usersData") || "");
-      setUsersData(users[params.userId - 1]);
+      setUsersData(users[-1 + params.userId]);
     }
 
     const dataFetch = async () => {
