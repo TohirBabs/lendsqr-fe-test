@@ -17,8 +17,9 @@ export const UserDetails = () => {
   const [showMenu, setShowMenu] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (localStorage.getItem("usersData") && params.userId) {
-      const users = JSON.parse(localStorage.getItem("usersData") || "");
+    const usersData = localStorage.getItem("usersData");
+    if (usersData && params.userId) {
+      const users = JSON.parse(usersData);
       setUsersData(users[-1 + params.userId]);
     }
 

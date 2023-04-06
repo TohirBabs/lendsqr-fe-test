@@ -13,8 +13,10 @@ export const Users = () => {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   React.useEffect(() => {
-    setUsersData(JSON.parse(localStorage.getItem("usersData") || ""));
-
+    const usersData = localStorage.getItem("usersData");
+    if (usersData) {
+      setUsersData(JSON.parse(usersData));
+    }
     const dataFetch = async () => {
       const data = await (await fetch(`${API_BASE_URL}/users`)).json();
       setUsersData(data);
